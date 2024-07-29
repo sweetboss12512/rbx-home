@@ -10,9 +10,21 @@ const main = function() {
     recommendeds[recommendeds.length - 1].appendChild(toMove)
 
     const gameLists = document.querySelectorAll(".game-sort-carousel-wrapper")
-    const picks = gameLists[0]
 
-    gameLists[3].after(picks)
+    /** @type Element */
+    let picks
+
+    for (let i = 0; i < gameLists.length; i++) {
+        const element = gameLists[i]
+        const header = element.querySelector(".sort-header") 
+
+        if (header.innerHTML.includes("Picks")) {
+            picks = element
+            break
+        }
+    }
+
+    gameLists[gameLists.length - 1].after(picks)
 }
 
 // This is stupid. Too bad!
