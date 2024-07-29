@@ -4,10 +4,15 @@
 let recommendeds
 
 const main = function() {
-    // Moving the first annoying Reccomended to the bottom...
+    // Moving the first annoying Recommended to the bottom...
     const toMove = recommendeds[0]
-    toMove.querySelector(".container-header").remove() // Remove the extra 'Reccomended for you'
     recommendeds[recommendeds.length - 1].appendChild(toMove)
+
+    // Remove the extra 'Recommended for you'
+    toMove.querySelector(".container-header").remove()
+    for (let i = 2; i < recommendeds.length; i++) {
+        recommendeds[i].querySelector(".container-header").remove()
+    }
 
     const gameLists = document.querySelectorAll(".game-sort-carousel-wrapper")
 
