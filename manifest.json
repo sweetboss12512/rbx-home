@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "Roblox Home",
+    "description": "Just trying to make the home page a bit better...",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.roblox.com/home"
+            ],
+            "js": [
+                "src/home.js"
+            ]
+        }
+    ]
+}
