@@ -21,15 +21,20 @@ const main = function() {
 
     for (let i = 0; i < gameLists.length; i++) {
         const element = gameLists[i]
-        const header = element.querySelector(".sort-header") 
+        const header = element.querySelector(".sort-header")
 
-        if (header.innerHTML.includes("Picks")) {
+        // Currently, only the picks has this element.
+        const susbtitleText = element.querySelector(".sort-subtitle-container")
+
+        if (header.innerHTML.includes("Picks") || susbtitleText) {
             picks = element
             break
         }
     }
 
-    gameLists[gameLists.length - 1].after(picks)
+    if (picks) {
+        gameLists[gameLists.length - 1].after(picks)
+    }
 }
 
 // This is stupid. Too bad!
