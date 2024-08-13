@@ -4,36 +4,29 @@
 let recommendeds
 
 const main = function() {
-    // Moving the first annoying Recommended to the bottom...
-    const toMove = recommendeds[0]
-    recommendeds[recommendeds.length - 1].appendChild(toMove)
+    const friendsList = document.querySelector(".friend-carousel-container")
+    let continueCarousel
+    let favoritesCarousel
 
-    // Remove the extra 'Recommended for you'
-    toMove.querySelector(".container-header").remove()
-    for (let i = 2; i < recommendeds.length; i++) {
-        recommendeds[i].querySelector(".container-header").remove()
-    }
+    const gameCarousels = document.querySelectorAll(".game-sort-carousel-wrapper")
 
-    const gameLists = document.querySelectorAll(".game-sort-carousel-wrapper")
+    for (let i = 0; i < gameCarousels.length; i++) {
+        const element = gameCarousels[i]
+        const sortText = element.querySelector(".sort-header")
 
-    /** @type Element */
-    let picks
-
-    for (let i = 0; i < gameLists.length; i++) {
-        const element = gameLists[i]
-        const header = element.querySelector(".sort-header")
-
-        // Currently, only the picks has this element.
-        const susbtitleText = element.querySelector(".sort-subtitle-container")
-
-        if (header.innerHTML.includes("Picks") || susbtitleText) {
-            picks = element
-            break
+        if (sortText.innerHTML.includes("Continue")) {
+            continueCarousel = element
+        } else if (sortText.innerHTML.includes("Favorites")) {
+            favoritesCarousel = element
         }
     }
 
-    if (picks) {
-        gameLists[gameLists.length - 1].after(picks)
+    friendsList.after(continueCarousel)
+    continueCarousel.after(favoritesCarousel)
+
+    // Remove extra 'Recommended' labels
+    for (let i = 1; i < recommendeds.length; i++) {
+        recommendeds[i].querySelector(".container-header").remove()
     }
 }
 
@@ -41,7 +34,7 @@ const main = function() {
 const interval = setInterval(() => {
     recommendeds = document.querySelectorAll('[data-testid="home-page-game-grid"]')
 
-    if (recommendeds.length != 0) {
+    if (recommendeds.length > 1) {
         clearInterval(interval)
         main()
     }
