@@ -10,7 +10,8 @@
             ],
             "js": [
                 "src/home.js"
-            ]
+            ],
+            "run_at": "document_end"
         }
     ]
 }
