@@ -1,8 +1,19 @@
 {
+    "$schema": "https://json.schemastore.org/chrome-manifest",
     "manifest_version": 3,
     "name": "Roblox Home",
     "description": "Just trying to make the home page a bit better...",
     "version": "1.0",
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/places.html"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -10,6 +21,14 @@
             ],
             "js": [
                 "src/home.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://www.roblox.com/games/*"
+            ],
+            "js": [
+                "src/places.js"
             ]
         }
     ]
