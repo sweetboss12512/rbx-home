@@ -30,7 +30,7 @@ async function getPlaces() {
         const link = document.createElement("a")
         link.href = GAME_URL + data.id
         link.style.display = "block"
-        link.text = `- ${data.name}`
+        link.text = `◉ ${data.name}`
         link.className = "text-name text-overflow"
 
         // const link = document.createElement("a")

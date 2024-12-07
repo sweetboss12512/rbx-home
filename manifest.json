@@ -1,5 +1,4 @@
 {
-    "$schema": "https://json.schemastore.org/chrome-manifest",
     "manifest_version": 3,
     "name": "Roblox Home",
     "description": "Just trying to make the home page a bit better...",
@@ -29,6 +28,9 @@
             ],
             "js": [
                 "src/places.js"
+            ],
+            "css": [
+                "assets/places.css"
             ]
         }
     ]
