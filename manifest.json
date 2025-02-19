@@ -19,7 +19,7 @@
                 "https://www.roblox.com/home"
             ],
             "js": [
-                "src/home.js"
+                "src/rbx-home.js"
             ]
         },
         {

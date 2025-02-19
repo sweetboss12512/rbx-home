@@ -33,6 +33,7 @@ const main = function() {
 // This is stupid. Too bad!
 const interval = setInterval(() => {
     recommendeds = document.querySelectorAll('[data-testid="home-page-game-grid"]')
+    console.log(recommendeds)
 
     if (recommendeds.length > 1) {
         clearInterval(interval)
